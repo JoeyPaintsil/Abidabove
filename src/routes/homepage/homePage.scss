@@ -1,0 +1,76 @@
+@use '../../styles/colors' as *;
+@use '../../responsive' as *;
+@use 'sass:color';
+
+
+.how {
+	color: #111827;
+	h2 { margin-bottom: 20px; }
+	.steps {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 16px;
+		@include md { grid-template-columns: 1fr; }
+		.step { padding: 18px; }
+	}
+}
+
+.auctions {
+	background: #f8fafc;
+	h2 {
+		color: #0f172a;
+		margin-bottom: 22px;
+		font-size: 36px;
+		font-weight: 800;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 16px;
+		@include md { grid-template-columns: repeat(2, 1fr); }
+		@include sm { grid-template-columns: 1fr; }
+	}
+	.view-more-wrapper {
+		display: flex;
+		justify-content: center;
+		margin-top: 32px;
+	}
+	.view-more-btn {
+		background: #fff;
+		color: #1f2937;
+		border: 1px solid #d1d5db;
+		border-radius: 6px;
+		padding: 14px 48px;
+		font-size: 14px;
+		font-weight: 600;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition: background 0.2s, color 0.2s;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+		&:hover {
+			background: #f9fafb;
+		}
+	}
+}
+
+.contact {
+	background: #f8fafc;
+	h2 {
+		color: #000;
+	}
+	.form {
+		display: grid;
+		gap: 12px;
+		padding: 18px;
+		background: #ffffff;
+		input, textarea {
+			border-radius: 8px;
+			border: 1px solid #e5e7eb;
+			padding: 12px 10px;
+			font: inherit;
+		}
+	}
+}
+
+

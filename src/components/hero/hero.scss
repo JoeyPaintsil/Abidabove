@@ -1,0 +1,89 @@
+@use '../../styles/colors' as *;
+@use '../../responsive' as *;
+
+.hero {
+	position: relative;
+	min-height: 100vh;
+	background-image: url('https://www.wsupercars.com/wallpapers-regular/Mercedes-Benz/2024-Mercedes-AMG-CLE53-001-1080.jpg');
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	margin-top: -80px;
+	padding-top: 80px;
+	@include md {
+		min-height: 120vh;
+		margin-top: -70px;
+		padding-top: 70px;
+	}
+	@include sm {
+		min-height: 120vh;
+		margin-top: -60px;
+		padding-top: 60px;
+	}
+}
+.overlay {
+	min-height: inherit;
+	display: flex;
+	flex-direction: column;
+	@include sm {
+		padding-top: 0;
+	}
+}
+.hero-inner {
+	flex: 1;
+	max-width: 920px;
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 20px;
+	gap: 16px;
+	@include md {
+		padding: 16px;
+		justify-content: flex-start;
+		padding-top: 0;
+		margin-top: 0;
+		gap: 12px;
+	}
+	@include sm {
+		padding: 12px;
+		padding-top: 0;
+		margin-top: 0;
+		gap: 10px;
+	}
+}
+.hero-title {
+	color: #fff;
+	margin: 0;
+	font-size: 54px;
+	font-weight: 800;
+	line-height: 1.05;
+	@include md {
+		font-size: 36px;
+		line-height: 1.1;
+	}
+	@include sm {
+		font-size: 28px;
+		line-height: 1.15;
+	}
+}
+.hero-sub {
+	color: rgba(255,255,255,.9);
+	margin: 0;
+	font-size: 22px;
+	font-weight: 600;
+	@include md {
+		font-size: 16px;
+		margin-top: 200px; /* MARGIN-TOP FOR "Find, bid, and own the car you've always wanted" - MEDIUM SCREENS - Line 64 */
+	}
+	@include sm {
+		font-size: 14px;
+		margin-top: 80px; /* MARGIN-TOP FOR "Find, bid, and own the car you've always wanted" - SMALL SCREENS - Line 68 */
+	}
+}
+

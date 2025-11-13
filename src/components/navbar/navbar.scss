@@ -1,0 +1,101 @@
+@use '../../styles/colors' as *;
+@use '../../responsive' as *;
+
+.navbar {
+	margin-top: 10px;
+	position: relative;
+	width: 100%;
+	z-index: 100;
+	background:transparent;
+	
+	color: #fff;
+	&::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -14px;
+		height: 1px;
+		background: rgba(255,255,255,.5);
+	}
+}
+.nav-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 0;
+}
+.brand {
+	font-weight: 800;
+	letter-spacing: .5px;
+	font-size: 28px;
+}
+.menu-btn {
+	display: none;
+	background: transparent;
+	border: 0;
+	cursor: pointer;
+	padding: 6px;
+	span { display: block; width: 22px; height: 2px; background: #fff; margin: 4px 0; border-radius: 2px; }
+	@include md { display: inline-block; }
+}
+.links {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+	a {
+		color: #fff;
+		opacity: .9;
+		display: inline-block;
+		transition: transform .15s ease, opacity .15s ease;
+	}
+	a:hover {
+		transform: scale(1.01);
+		opacity: 1;
+	}
+	.submit-btn {
+		background: rgba(255,255,255,.08);
+		color: #fff;
+		border-radius: 15px;
+		padding: 10px 16px;
+		border: 2px solid rgba(255,255,255,.9);
+		border-width: 0.5px;
+	}
+	@include md {
+		display: none;
+	}
+}
+
+/* Slide-down menu for mobile */
+.mobile-menu {
+	display: none;
+	@include md {
+		display: grid;
+		gap: 12px;
+		background: rgba(0,0,0,.6);
+		backdrop-filter: blur(6px);
+		padding: 0 20px;
+		border-top: 1px solid rgba(255,255,255,.15);
+		max-height: 0;
+		overflow: hidden;
+		opacity: 0;
+		transform: translateY(-10px);
+		transition: max-height 0.3s ease-out, opacity 0.3s ease-out, padding 0.3s ease-out, transform 0.3s ease-out;
+		a { 
+			color: #fff; 
+			opacity: 0;
+			transition: opacity 0.2s ease-out 0.1s;
+		}
+		.submit-btn { justify-self: start; }
+		&.is-open {
+			max-height: 500px;
+			opacity: 1;
+			padding: 12px 20px 16px;
+			transform: translateY(0);
+			a {
+				opacity: 1;
+			}
+		}
+	}
+}
+

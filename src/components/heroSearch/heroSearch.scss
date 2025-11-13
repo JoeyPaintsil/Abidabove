@@ -1,0 +1,131 @@
+@use '../../styles/colors' as *;
+@use '../../responsive' as *;
+
+.hero-search {
+	position: relative;
+	left: 0;
+	top: 0;
+	width: 980px;
+	max-width: 100%;
+	background: #ffffff;
+	border: 1px solid #e6e7eb;
+	border-radius: 999px;
+	padding: 12px;
+	margin: 28px auto 0; /* extra spacing below headings */
+	color: #0f172a;
+	box-shadow: 0 12px 40px rgba(0,0,0,.15);
+	backdrop-filter: blur(4px);
+	overflow: hidden; /* keep rounded pill edges */
+	@include md { 
+		width: 80%;
+		max-width: 600px;
+		border-radius: 16px; 
+		padding: 12px;
+		margin-top: 20px;
+	}
+	@include sm {
+		width: 80%;
+		padding: 10px;
+		margin-top: 16px;
+	}
+}
+.hero-search .title {
+	display: none;
+}
+ .hero-search .grid {
+ 	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
+	align-items: center;
+ 	gap: 0;
+	@include md { 
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+	@include sm { 
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+ }
+.hero-search select,
+.hero-search input {
+	width: 100%;
+	border-radius: 0;
+	border: 0;
+	padding: 0 16px;
+	background: transparent;
+	font: inherit;
+	height: 56px;
+	outline: none;
+	box-shadow: none;
+	color: #111827;
+	font-size: 15px;
+	order: 0; /* default order */
+	&::placeholder { color: #9ca3af; }
+	/* remove default arrows styling inconsistencies and add custom chevron */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'><path d='M1 1.5L6 6.5L11 1.5' stroke='%23111827' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+	background-repeat: no-repeat;
+	background-position: right 16px center;
+	background-size: 12px 8px;
+	padding-right: 36px;
+	@include md { 
+		border: 1px solid #e5e7eb; 
+		border-radius: 10px; 
+		background: #fff; 
+		height: 48px;
+		padding: 0 12px;
+		padding-right: 32px;
+		font-size: 14px;
+		order: 0; /* keep inputs in order */
+	}
+	@include sm {
+		height: 44px;
+		padding: 0 10px;
+		padding-right: 30px;
+		font-size: 13px;
+		background-size: 10px 6px;
+		background-position: right 10px center;
+		order: 0; /* keep inputs in order */
+	}
+}
+.hero-search .grid > :nth-child(-n+4) {
+	border-right: 1px solid #e5e7eb; /* divider only for first four fields */
+	@include md { border-right: 0; }
+}
+.hero-search .search {
+	grid-column: 6 / 7; /* right-aligned button on desktop */
+	grid-row: 1;
+	background: #3b5af0; /* match screenshot button */
+	height: 56px;
+	padding: 0 28px;
+	border-radius: 999px;
+	color: #fff;
+	font-weight: 700;
+	font-size: 15px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	transition: background .2s ease;
+	order: 0; /* default order */
+	&:hover { background: #2f49c9; }
+	@include md { 
+		width: 100%; 
+		border-radius: 12px; 
+		height: 48px;
+		padding: 0 24px;
+		font-size: 14px;
+		order: 6; /* move to bottom on medium and small screens */
+	}
+	@include sm { 
+		width: 100%; 
+		height: 44px;
+		padding: 0 20px;
+		font-size: 13px;
+		order: 6; /* move to bottom */
+	}
+}
+
+

@@ -1,0 +1,15 @@
+$breakpoint-md: 900px;
+$breakpoint-sm: 640px;
+
+@mixin md {
+	@media (max-width: #{$breakpoint-md}) {
+		@content;
+	}
+}
+@mixin sm {
+	@media (max-width: #{$breakpoint-sm}) {
+		@content;
+	}
+}
+
+
